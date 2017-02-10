@@ -25,7 +25,6 @@ var bot *linebot.Client
 var PetDB string
 func main() {
 	var err error
-	PetDB = Send() 
 	bot, err = linebot.New(os.Getenv("ChannelSecret"), os.Getenv("ChannelAccessToken"))
 	log.Println("Bot:", bot, " err:", err)
 	http.HandleFunc("/callback", callbackHandler)
@@ -50,6 +49,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
+				PetDB = Send() 
 				var text = PetDB;
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.id +":"+ text)).Do(); err != nil {
 					log.Print(err)
