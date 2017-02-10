@@ -8,7 +8,7 @@ import (
 )
 
 func Send() string{  
-    var jsonStr = []byte('{}')
+    var jsonStr = []byte(`{}`)
 
     url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
 
