@@ -25,7 +25,7 @@ var bot *linebot.Client
 var PetDB string
 func main() {
 	var err error
-	PetDB = NewPets() 
+	PetDB = Send() 
 	bot, err = linebot.New(os.Getenv("ChannelSecret"), os.Getenv("ChannelAccessToken"))
 	log.Println("Bot:", bot, " err:", err)
 	http.HandleFunc("/callback", callbackHandler)
