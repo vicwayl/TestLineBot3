@@ -17,7 +17,7 @@ import (
 	"log"
 )
 
-func NewPets() string {
+func NewPets() {
 	c := NewClient("http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld")
 	body, err := c.GetHttpRes()
 	if err != nil {
