@@ -19,7 +19,7 @@ func Send() string{
     client := &http.Client{}
     resp, err := client.Do(req)
     if err != nil {
-        panic(err)
+       return panic(err)
     }
     defer resp.Body.Close()
 
