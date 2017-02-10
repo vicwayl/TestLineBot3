@@ -19,7 +19,7 @@ func Send() err{
     client := &http.Client{}
     resp, err := client.Do(req)
     if err != nil {
-        return err
+        panic(err)
     }
     defer resp.Body.Close()
 
@@ -27,5 +27,5 @@ func Send() err{
     fmt.Println("response Headers:", resp.Header)
     body, _ := ioutil.ReadAll(resp.Body)
     fmt.Println("response Body:", string(body))
-    //return string(body)
+    return string(body)
 }
