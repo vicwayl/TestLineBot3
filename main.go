@@ -49,9 +49,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				PetDB = Send() 
-				var text = PetDB;
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.id +":"+ text)).Do(); err != nil {
+				//PetDB = Send() 
+				//var text = PetDB;
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.id +":")).Do(); err != nil {
 					log.Print(err)
 				}
 			}
