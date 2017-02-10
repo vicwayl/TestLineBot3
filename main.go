@@ -22,7 +22,7 @@ import (
 )
 
 var bot *linebot.Client
-
+var PetDB string
 func main() {
 	var err error
 	PetDB = NewPets() 
