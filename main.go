@@ -38,9 +38,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var txt = Send();
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!"+ string(event.Message))).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!")).Do(); err != nil {
 					log.Print(err)
 				}
+			}
+		}
+		if event.Type == linebot.EventTypeFollow {
+			var txt = Send();
+			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("OK!")).Do(); err != nil {
+				log.Print(err)
 			}
 		}
 	}
