@@ -45,7 +45,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 		if event.Type == linebot.EventTypeFollow {
-			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("OK!")).Do(); err != nil {
+			var text = "Hi!歡迎使用魔物獵人LINE@BOT\n"+
+				"指令:\n"+
+				"@魔物名稱\n"+
+				"/功能\n"+
+				
+				"\n若不知道該如何下指令，請輸入/help查詢。"
+			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("")).Do(); err != nil {
 				log.Print(err)
 			}
 		}
