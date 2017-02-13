@@ -7,10 +7,10 @@ import (
     "net/http"
 )
 
-func Send() string{  
-    var jsonStr = []byte(`{}`)
+func Send(str string) string{  
+    var jsonStr = []byte(`{"Text":"`+str+`"}`)
 
-    url := "http://saappd.cloudapp.net/Line/WebService1.asmx/HelloWorld"
+    url := "http://saappd.cloudapp.net/Line/WebService1.asmx/GetText"
 
     req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
     req.Header.Set("X-Custom-Header", "myvalue")
