@@ -51,7 +51,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				"/功能\n"+
 				
 				"\n若不知道該如何下指令，請輸入/help查詢。"
-			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("")).Do(); err != nil {
+			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(text)).Do(); err != nil {
 				log.Print(err)
 			}
 		}
