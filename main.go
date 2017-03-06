@@ -32,7 +32,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-	if _, err := bot.PushMessage("U2c68fd429a99dceccc8956571baa7d00", linebot.NewTextMessage("hello")).Do(); err != nil {
+	if _, err := bot.PushMessage("db2293507c874413ade1f0d52b3fdbec", linebot.NewTextMessage("hello")).Do(); err != nil {
 		log.Print(err)
 	}
 	
