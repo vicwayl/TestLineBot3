@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strconv"
+	"math/rand"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 
@@ -44,15 +44,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				var txt = ""
 				var text1 = "彥達好帥"
 				var text2 = "彥達好棒"
+				rand.Seed(2)
+				answers := []string{"彥達好帥","彥達好棒"}
 				//if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!"+txt+"  "+event.Source.UserID+"   "+event.ReplyToken)).Do(); err != nil {
 				//	log.Print(err)
 				//}
-				if(strconv.Atoi(event.ReplyToken) % 2 == 0){
-					txt = text1;
-				}else {
-					txt = text2;
-				}
-				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(txt)).Do(); err != nil {
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do(); err != nil {
 					log.Print(err)
 				}
 				
