@@ -47,7 +47,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				//if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!"+txt+"  "+event.Source.UserID+"   "+event.ReplyToken)).Do(); err != nil {
 				//	log.Print(err)
 				//}
-				if(event.ReplyToken % 2 == 0){
+				if(strconv.Atoi(event.ReplyToken) % 2 == 0){
 					txt = text1;
 				}else {
 					txt = text2;
