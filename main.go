@@ -34,6 +34,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
+	if content != nil && content.IsOperation && content.OpType == OpTypeAddedAsFriend {
+		
+			out := fmt.Sprintf("(Welcom MSG)歡迎訊息..")
+			//result.RawContent.Params[0] is who send your bot friend added operation, otherwise you cannot get in content or operation content.
+			_, err = bot.SendText([]string{result.RawContent.Params[0]}, out)
+			if err != nil {
+				log.Println(err)
+			}
 	//if _, err := bot.PushMessage("U2c68fd429a99dceccc8956571baa7d00", linebot.NewTextMessage("hello")).Do(); err != nil {
 	//	txt= txt + err.Error()
 	//}
@@ -54,16 +62,16 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				
 			}
 		}
-		if event.Type == linebot.EventTypeFollow {
-			var text = "Hi!歡迎使用魔物獵人LINE@BOT\n"+
-				"指令:\n"+
-				"@魔物名稱\n"+
-				"/功能\n"+
+	//	if event.Type == linebot.EventTypeFollow {
+	//		var text = "Hi!歡迎使用魔物獵人LINE@BOT\n"+
+	//			"指令:\n"+
+	//			"@魔物名稱\n"+
+	//			"/功能\n"+
 				
-				"\n若不知道該如何下指令，請輸入/help查詢。"
-			if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(text)).Do(); err != nil {
-				log.Print(err)
-			}
+	//			"\n若不知道該如何下指令，請輸入/help查詢。"
+	//		if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(text)).Do(); err != nil {
+	//			log.Print(err)
+	//		}
 		}
 	}
 }
