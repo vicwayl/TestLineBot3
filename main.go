@@ -40,8 +40,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	//}
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
-			switch message := event.Message.(type) {
-			case *linebot.TextMessage:
+			//switch message := event.Message.(type) {
+			//case *linebot.TextMessage:
 				//var txt = Send(message.Text);
 				//rand.Seed(99)
 				answers := []string{"您好!我是鐵蛋機器人","歡迎來找我玩喔~","工程師哥哥真帥","我最喜歡導覽姐姐了<3","我是阿呆博士的機器人!!"}
@@ -51,7 +51,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				var txt =answers[rand.Intn(len(answers))]
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(txt)).Do(); err != nil {
 					log.Print(err)
-				}
+			//	}
 				
 			}
 		}
