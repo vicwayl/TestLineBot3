@@ -44,7 +44,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			//case *linebot.TextMessage:
 				//var txt = Send(message.Text);
 				//rand.Seed(99)
-				answers := []string{"您好!我是鐵蛋機器人","歡迎來找我玩喔~","工程師哥哥真帥","我最喜歡導覽姐姐了<3","我是阿呆博士的機器人!!"}
+				answers := []string{"嗨~~我是悠然♥","冰塊最可愛了~~~","小哲別送頭~~ˋˊ","月球好可愛~~<3"}
 				//if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.ID+":"+message.Text+" OK!"+txt+"  "+event.Source.UserID+"   "+event.ReplyToken)).Do(); err != nil {
 				//	log.Print(err)
 				//}
